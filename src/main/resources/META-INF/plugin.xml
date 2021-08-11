@@ -1,0 +1,17 @@
+<idea-plugin>
+    <id>io.github.genju83.apkinstall</id>
+    <name>Apk Install</name>
+    <vendor>genju83@gmail.com</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+
+    <actions>
+        <action id="Install.main"
+                class="io.github.genju83.apkinstall.actions.Install"
+                text="Install Apk"
+                description="Right click to Install">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
