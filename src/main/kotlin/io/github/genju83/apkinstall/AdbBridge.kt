@@ -70,7 +70,7 @@ sealed interface BridgeMethod<EventType> {
 
         when (val checkCondition = checkCondition(eventType)) {
             is ReadyState.Ready -> {
-                ProgressManager.getInstance().run(object : Task.Backgroundable(givenProject, "progress") {
+                ProgressManager.getInstance().run(object : Task.Backgroundable(givenProject, this::class.java.simpleName + " on progress...") {
                     override fun run(progressIndicator: ProgressIndicator) {
                         progressIndicator.isIndeterminate = true
                         executorService.submit { doIfReady(checkCondition.eventType, androidBridge) }.get()
